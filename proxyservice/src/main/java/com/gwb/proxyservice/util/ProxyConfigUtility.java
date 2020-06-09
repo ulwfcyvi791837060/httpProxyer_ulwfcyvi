@@ -35,7 +35,7 @@ public final class ProxyConfigUtility {
 	//String targetUrl = "https://gridcloud.91cpct.com/stage-api";
 
 	// 包含ulhttp则无效  如 ulhttps://webapp.91cpct.com
-	public static String targetUrlTest = "ulhttps://webapp.91cpct.com";
+	public static String targetUrlTest = "https://webapp.91cpct.com";
 	public static String targetUrlLocal = "http://192.168.0.100:8403";
 
 	/*

@@ -461,12 +461,25 @@ public class ProxyServlet extends HttpServlet {
     try {
       LoginDto loginDto = new LoginDto();
       loginDto.setCountry("+86");
-      loginDto.setPassword("123456");
-      loginDto.setMobilephone("13530103824");
+      /*loginDto.setPassword("123456");
+      loginDto.setMobilephone("13530103824");*/
+      //a123456
+      loginDto.setPassword("85ea42562e733c094a193f469ad440d6");
+      loginDto.setMobilephone("18423232323");
+
 
       //loginDto.setPassword("aac41e037079cdb631fbc6fd6d31dddf");
-      loginDto.setPassword("aac41e037079cdb631fbc6fd6d31dddf");
-      loginDto.setMobilephone("18423232323");
+      //loginDto.setPassword("aac41e037079cdb631fbc6fd6d31dddf");
+      //loginDto.setMobilephone("18423232323");
+      String targetUrl = ProxyConfigUtility.targetUrlTest;
+      if(targetUrl.contains("ulhttp")){
+        targetUrl =ProxyConfigUtility.targetUrlLocal;
+        loginDto.setPassword("aac41e037079cdb631fbc6fd6d31dddf");
+        loginDto.setMobilephone("18423232323");
+      }else{
+        //loginDto.setPassword("aac41e037079cdb631fbc6fd6d31dddf");
+        //loginDto.setMobilephone("18423232323");
+      }
 
       JSONObject jsonParam = JSON.parseObject(JSON.toJSONString(loginDto));
       //String url ="https://webapp.91cpct.com/app-token/api/authenticate";
@@ -477,10 +490,7 @@ public class ProxyServlet extends HttpServlet {
       System.out.println(appLogin);
       //释放资源
       jedis.close();*/
-      String targetUrl = ProxyConfigUtility.targetUrlTest;
-      if(targetUrl.contains("ulhttp")){
-        targetUrl =ProxyConfigUtility.targetUrlLocal;
-      }
+
       String url = targetUrl+"/app-token/api/authenticate";
       // post请求返回结果
       CloseableHttpClient httpClient = HttpClients.createDefault();
